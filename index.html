@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>iPhone Duo Physical 3D Folding Prototype</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Controls Panel -->
+  <div class="test-controls-panel" id="controlsPanel">
+    <div class="panel-header">
+      <span class="panel-title"><i class="fa-solid fa-book-open"></i> Duo Fold Controls</span>
+      <button class="toggle-btn" id="togglePanelBtn"><i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div class="panel-body" id="panelBody">
+      <div class="control-group">
+        <label for="foldSlider">Physical Fold Position: <span id="foldVal">0%</span></label>
+        <input type="range" id="foldSlider" min="0" max="100" value="0">
+      </div>
+      <div class="control-group">
+        <label>Interactive Snap Presets</label>
+        <div class="btn-group">
+          <button id="closePresetBtn" class="preset-btn"><i class="fa-solid fa-book"></i> Closed (0°)</button>
+          <button id="halfFoldPresetBtn" class="preset-btn"><i class="fa-solid fa-laptop"></i> Half (90°)</button>
+          <button id="openPresetBtn" class="preset-btn"><i class="fa-solid fa-book-open"></i> Open (180°)</button>
+        </div>
+      </div>
+      <div class="sensor-readout">
+        <div>Hinge Angle: <span id="foldAngleReadout">0°</span></div>
+        <div>Panel Status: <span id="stateBadge" class="status-badge closed">Closed (0°)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Studio Viewport Wrapper -->
+  <div class="viewport-wrapper">
+    <div class="duo-container" id="duoContainer">
+      
+      <!-- Left Display Panel (Anchored at Central Vertical Hinge) -->
+      <div class="duo-panel left-panel" id="leftDisplayPanel">
+        <div class="panel-screen-crop left-crop">
+          <img src="wallpaper.jpg" alt="Home Screen Left Crop" class="crop-img">
+        </div>
+        <div class="panel-bezel"></div>
+      </div>
+
+      <!-- Center Physical Hinge Axis -->
+      <div class="central-hinge" id="hingeView">
+        <div class="hinge-line"></div>
+      </div>
+
+      <!-- Right Display Panel (Rotates 0° to 180° around Hinge Axis) -->
+      <div class="duo-panel right-panel" id="rightDisplayPanel">
+        <div class="panel-screen-crop right-crop">
+          <img src="wallpaper.jpg" alt="Home Screen Right Crop" class="crop-img">
+        </div>
+        <div class="panel-bezel"></div>
+        <div class="panel-glare"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
